@@ -1,0 +1,31 @@
+{
+    "name": "winthrop",
+    "description": "git repo generator for node modules",
+    "keywords": ["winthrop", "module", "generator", "git", "repo"],
+    "homepage": "https://github.com/dfellis/winthrop",
+    "author": "David Ellis",
+    "version": "0.1.0",
+    "bugs": "https://github.com/dfellis/winthrop/issues",
+    "repository: {
+        "type": "git",
+        "url": "git://github.com:dfellis/winthrop.git"
+    },
+    "bin": "./bin/winthrop.js",
+    "dependencies": {
+        "md2jekyllhtml": "*",
+        "lambda-js": "*",
+        "queue-flow": "*",
+        "commander": "*",
+    },
+    "devDependencies": {
+        "nodeunit": "*",
+        "docco": "*"
+    },
+    "engines": {
+        "node": ">=0.6"
+    },
+    "scripts": {
+        "prepublish": "./prepublish.sh",
+        "test": "nodeunit ./test/test.js"
+    }
+}

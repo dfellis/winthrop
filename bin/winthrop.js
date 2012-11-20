@@ -85,7 +85,6 @@ if(commander.doc) prepublish.sh.push(
 );
 if(commander.site) prepublish.sh.push(
     '# Build the index page',
-    'git stash',
     'md2jekyllhtml readme.md',
     'touch new-index.html',
     'echo --- >> new-index.html',
@@ -95,6 +94,7 @@ if(commander.site) prepublish.sh.push(
     'echo --- >> new-index.html',
     'cat readme.html >> new-index.html',
     'rm readme.html',
+    'git stash',
     '',
     '# Put the documentation in the gh-pages branch',
     'mv docs docs-new',
@@ -121,6 +121,7 @@ if(commander.minify && !commander.browserify) prepublish.sh.push(
     ''
 );
 prepublish.sh.push(
+    '# Commit the changes to master',
     'git commit -am "Automatic minification for version $npm_package_version"',
     'git tag $npm_package_version',
     'git push',
@@ -221,13 +222,13 @@ q('full')
     .exec(run, 'error')
     .map(l('res', 'travis.yml'))
     .exec(fs.writeFile.bind(fs, process.cwd() + '/.travis.yml'), 'error')
-    .map(l('res', 'package.json'))
+    .map(l('res', 'JSON.stringify(package.json)'))
     .exec(fs.writeFile.bind(fs, process.cwd() + '/package.json'), 'error')
-    .map(l('res', 'prepublish.sh'))
+    .map(l('res', 'prepublish.sh.join("\n")'))
     .exec(fs.writeFile.bind(fs, process.cwd() + '/prepublish.sh'), 'error')
     .map(l('res', '"chmod +x prepublish.sh"'))
     .exec(run, 'error')
-    .map(l('res', 'readme.md'))
+    .map(l('res', 'readme.md.join("\n")'))
     .exec(fs.writeFile.bind(fs, process.cwd() + '/readme.md'), 'error')
     .map(l('res', '"git commit -am \'Initial commit by winthrop\'"'))
     .exec(run, 'error')
@@ -258,5 +259,4 @@ q('full')
     .map(l('res', '"git commit -am \'Initial commit by winthrop\'"'))
     .exec(run, 'error')
     .map(l('res', '"git checkout master"'))
-    .exec(run, 'error')
-    .map(l('res', '"./prepublish.sh"'));
+    .exec(run, 'error');
