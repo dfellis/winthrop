@@ -1,0 +1,22 @@
+{
+    "title": "",
+    "description": "",
+    "keywords": [],
+    "homepage": "http://urlhere",
+    "author": "",
+    "version": "0.0.1",
+    "bugs": "http://urlhere",
+    "repository": {
+        "type": "git",
+        "url": "git://urlhere"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "engines": {
+        "node": ">=0.6"
+    },
+    "scripts": {
+        "prepublish": "./prepublish.sh",
+        "test": ""
+    }
+}
