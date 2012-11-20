@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>{{page.title}}</title>
+
+    <link rel="stylesheet" href="/winthrop/stylesheets/styles.css">
+    <link rel="stylesheet" href="/winthrop/stylesheets/pygment_trac.css">
+    <script src="/winthrop/javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="sidebar">
+      <ol>
+        <li><a href="/winthrop/">winthrop</a></li>
+      {% for post in site.posts %}
+        <li><a href="/winthrop{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+        <li><a href="/winthrop/docs/winthrop.html">Source Documentation</a></li>
+      </ol>
+    </div>
+    <!--<img src="/winthrop/images/logo.svg">-->
+    <div class="wrapper">
+      <header>
+        <h1><a href="/winthrop/">{{page.title}}</a></h1>
+        <p>{{page.subtitle}}</p>
+        <p class="view"><a href="https://github.com/dfellis/winthrop">View the Project on GitHub <small>dfellis/winthrop</small></a></p>
+        <ul>
+          <li><a href="https://github.com/dfellis/winthrop/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/dfellis/winthrop/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/dfellis/winthrop">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        {{content}}
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/dfellis">dfellis</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a>, altered by <a href="https://github.com/dfellis">dfellis</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
