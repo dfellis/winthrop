@@ -4,9 +4,9 @@
     "keywords": ["winthrop", "module", "generator", "git", "repo"],
     "homepage": "https://github.com/dfellis/winthrop",
     "author": "David Ellis",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "bugs": "https://github.com/dfellis/winthrop/issues",
-    "repository: {
+    "repository": {
         "type": "git",
         "url": "git://github.com:dfellis/winthrop.git"
     },
@@ -15,7 +15,7 @@
         "md2jekyllhtml": "*",
         "lambda-js": "*",
         "queue-flow": "*",
-        "commander": "*",
+        "commander": "*"
     },
     "devDependencies": {
         "nodeunit": "*",
@@ -25,7 +25,7 @@
         "node": ">=0.6"
     },
     "scripts": {
-        "prepublish": "./prepublish.sh",
+        "realpublish": "./prepublish.sh && npm publish",
         "test": "nodeunit ./test/test.js"
     }
 }
